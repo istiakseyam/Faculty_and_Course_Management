@@ -1,0 +1,108 @@
+{% extends 'start/base/base.html' %} {% load static %} {%block style%}
+<link rel="stylesheet" href="{% static 'start/styles/home.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+<style>
+    /* DivTable.com */
+    
+    .divTable {
+        display: table;
+        width: 100%;
+    }
+    
+    .divTableRow {
+        display: table-row;
+    }
+    
+    .divTableHeading {
+        background-color: #EEE;
+        display: table-header-group;
+    }
+    
+    .divTableCell,
+    .divTableHead {
+        border: 1px solid #999999;
+        display: table-cell;
+        padding: 3px 10px;
+    }
+    
+    .divTableHeading {
+        background-color: #EEE;
+        display: table-header-group;
+        font-weight: bold;
+    }
+    
+    .divTableFoot {
+        background-color: #EEE;
+        display: table-footer-group;
+        font-weight: bold;
+    }
+    
+    .divTableBody {
+        display: table-row-group;
+    }
+</style>
+{%endblock%} {%block title%}All Courses{%endblock%} {%block body%}
+
+<div id="cload"></div>
+
+<div id="header">
+    <div class="row">
+        <div class="col-md-4">
+            <div id="logo">
+                <a href="">
+                    <h4>Faculty & Course Management</h4>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <ul id="menu" class="float-md-end">
+                <li><a href="/">Home</a></li>
+                <li><a href="/all_faculty/">All Faculty</a></li>
+                <li><a href="/all_course/">All Courses</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+    <div>
+        <h4>North South University</h4>
+    </div>
+</div>
+<div>
+    <div class="divTable" style="width: 100%;border: 2px solid #000;">
+        <div class="divTableBody">
+            <div class="divTableRow">
+                <div class="divTableCell">
+                    <h5>Course Name</h5>
+                </div>
+                <div class="divTableCell">
+                    <h5>Course Credit</h5>
+                </div>
+                <div class="divTableCell">
+                    <h5>Class Day</h5>
+                </div>
+                <div class="divTableCell">
+                    <h5>Class Time</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% for c in allCour%}
+<div>
+    <div class="divTable" style="width: 100%;border: 2px solid #000;">
+        <div class="divTableBody">
+            <div class="divTableRow">
+                <div class="divTableCell">{{c.cname}}</div>
+                <div class="divTableCell">{{c.crd}}</div>
+                <div class="divTableCell">{{c.cday}}</div>
+                <div class="divTableCell">{{c.ctime}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endfor%} {%endblock%}

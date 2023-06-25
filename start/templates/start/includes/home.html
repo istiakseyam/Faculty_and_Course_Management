@@ -1,0 +1,96 @@
+{% extends 'start/base/base.html' %} {% load static %} {%block style%}
+<link rel="stylesheet" href="{% static 'start/styles/home.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+<script>
+    $(document).ready(function() {
+        $('#select-club').select2();
+        $("#go").click(function() {
+            var val = $('#select-club').val();
+            var str = "/" + val;
+            window.location.replace(str);
+
+        });
+    });
+</script>
+{%endblock%} {%block title%}home{%endblock%} {%block body%}
+
+<div id="cload"></div>
+
+<div id="header">
+    <div class="row">
+        <div class="col-md-4">
+            <div id="logo">
+                <a href="">
+                    <h4>Faculty & Course Management</h4>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <ul id="menu" class="float-md-end">
+                <li><a href="">Home</a></li>
+                <li><a href="/all_faculty/">All Faculties</a></li>
+                <li><a href="/all_course/">All Courses</a></li>
+                
+            </ul>
+        </div>
+        <div class="col-md-9"></div>
+        <div class="col-md-3" align="right">
+            <select id="select-club">
+                <option selected disabled="true">select bellow!</option>
+                {%for a in allFac%}
+                <option>{{a.initial}}</option>
+                {%endfor%}
+            </select>
+            <button class="btn btn-warning" type="submit" id="go">go</button>
+        </div>
+    </div>
+</div>
+<div>
+
+
+
+<div class="section">
+    <div class="col-md-12">
+        <h2>Faculties</h2>
+    </div>
+    <div class="row">
+        {% for f in fac %}
+        <div class="col-md-4">
+            <div class="service-box">
+                <div class="club-box">
+                    <P><b>Faculty</b></P>
+                    <h5><b>{{f.fmane}}</b></h5>
+                    <p>Initial: <b>{{f.initial}}</b></p>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="col-md-12">
+        <h2>Courses</h2>
+    </div>
+    <div class="row">
+        {% for c in course %}
+        <div class="col-md-3">
+            <div class="service-box">
+                <div class="club-box">
+                    <P><b>Course</b></P>
+                    <h5><b>{{c.cname}}</b></h5>
+                    <p>Credit: <b>{{c.crd}}</b></p>
+                    <p>Day: <b>{{c.cday}}</b></p>
+                    <p>Time: <b>{{c.ctime}}</b></p>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

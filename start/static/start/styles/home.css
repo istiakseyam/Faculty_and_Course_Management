@@ -1,0 +1,91 @@
+#header {
+    color: goldenrod;
+    background: hsl(0, 17%, 95%);
+}
+
+#logo {
+    margin-top: 10px;
+}
+
+#menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu li {
+    display: inline-block;
+}
+
+#menu li a {
+    color: rgb(36, 38, 40);
+    padding: 15px 10px;
+    display: block;
+}
+
+#menu li a:hover {
+    background: rgb(212, 178, 93);
+}
+
+#banner {
+    background: url(../images/banner.png) no-repeat 0 0;
+    background-size: cover;
+}
+
+.banner-title {
+    padding: 5rem;
+}
+
+.banner-title h3 {
+    background: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    padding: 10px;
+}
+
+.banner-title p.lead {
+    color: #fff;
+    background: rgba(55, 186, 209, 0.491);
+}
+
+.section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.section h2 {
+    color: black;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section h2:after {
+    background: rgb(96, 149, 235);
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    margin: 20px auto;
+}
+
+.service-box {
+    text-align: center;
+}
+
+.pic img {
+    height: 200px;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.club-box {
+    background: rgba(242, 228, 148, 0.7);
+    margin: 20px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}

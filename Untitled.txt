@@ -1,0 +1,46 @@
+Course with unique section num table-
+	course name	section		crd	optional=time slot(fk-timeslot)
+
+Time slot
+
+	day&time
+
+Faculty table
+	fac_name	time slot(fk-timeslot)
+
+Takes
+	
+	fac_name(fk)	course(fk)	2
+
+
+
+class TimeSlot(models.Model):
+    day= models.CharField(max_length=2)
+    time= models.IntegerField(blank=False, null=False)
+
+    class Meta:
+        unique_together = (("day", "time"),)
+
+class Course(models.Model):
+    cname=models.CharField(max_length=8)
+    crd=models.IntegerField(blank=False, null=False)
+    time=models.ForeignKey(TimeSlot,to_field='csname', on_delete=models.CASCADE)
+
+
+class Time(models.Model):
+    time= models.FloatField(blank=False, null=False, unique=True)
+
+    def __str__(self):
+        return self.time
+
+class Course(models.Model):
+    cname=models.CharField(max_length=8, unique=True)
+    crd=models.IntegerField(blank=False, null=False)
+    cday=models.ForeignKey(Day,to_field='day', on_delete=models.CASCADE)
+    ctime=models.ForeignKey(Time,to_field='time', on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (("cday", "ctime","cname"),)
+
+def __str__(self):
+    return self.cname	
